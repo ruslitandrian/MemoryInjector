@@ -1,0 +1,87 @@
+{
+    "name": "PSOMemory",
+    "description": "PSO Memory Injection Tool",
+    "rules": [
+        {
+            "pattern": "**/*.cs",
+            "group": "Source Files",
+            "icon": "📄"
+        },
+        {
+            "pattern": "**/*.csproj",
+            "group": "Project Files",
+            "icon": "📦"
+        },
+        {
+            "pattern": "**/README.md",
+            "group": "Documentation",
+            "icon": "📚"
+        },
+        {
+            "pattern": "**/injection_info.dat",
+            "group": "Data Files",
+            "icon": "💾"
+        },
+        {
+            "pattern": "**/bin/**",
+            "group": "Build Output",
+            "icon": "🔨",
+            "ignore": true
+        },
+        {
+            "pattern": "**/obj/**",
+            "group": "Build Output",
+            "icon": "🔨",
+            "ignore": true
+        }
+    ],
+    "groups": [
+        {
+            "name": "Source Files",
+            "description": "C# source code files",
+            "icon": "📄"
+        },
+        {
+            "name": "Project Files",
+            "description": "Project configuration files",
+            "icon": "📦"
+        },
+        {
+            "name": "Documentation",
+            "description": "Project documentation",
+            "icon": "📚"
+        },
+        {
+            "name": "Data Files",
+            "description": "Runtime data files",
+            "icon": "💾"
+        },
+        {
+            "name": "Build Output",
+            "description": "Compiled binaries and intermediate files",
+            "icon": "🔨"
+        }
+    ],
+    "fileTypes": {
+        ".cs": {
+            "syntax": "csharp",
+            "bracketMatching": true,
+            "autoIndent": true
+        },
+        ".csproj": {
+            "syntax": "xml",
+            "bracketMatching": true
+        },
+        ".md": {
+            "syntax": "markdown",
+            "wordWrap": true
+        }
+    },
+    "search": {
+        "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/*.dat"
+        ]
+    }
+} 
