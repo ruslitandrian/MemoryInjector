@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="MemoryInjector.bak" />
+    <None Remove="Pes23_BypassPlaying.py" />
+  </ItemGroup>
+
 </Project>
