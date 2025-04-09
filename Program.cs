@@ -25,7 +25,7 @@ class Program
             }
         }
 
-        HandleUninjection();
+        HandleExit(ref running);
         CleanupAndExit();
     }
 
@@ -34,7 +34,7 @@ class Program
         Console.Clear();
         Console.WriteLine("=== Memory Injection Menu ===");
         Console.WriteLine("1. Inject Memory");
-        Console.WriteLine("2. UnInject Memory");
+        Console.WriteLine("2. Revert Injection");
         Console.WriteLine("3. Turn ON (Set to 166500.0)");
         Console.WriteLine("4. Turn OFF (Set to 0.0)");
         Console.WriteLine("5. Exit");
@@ -49,7 +49,7 @@ class Program
                 HandleInjection();
                 break;
             case "2":
-                HandleUninjection();
+                HandleRevertInjection();
                 break;
             case "3":
                 HandleValueChange(166500.0f, "ON");
@@ -58,7 +58,6 @@ class Program
                 HandleValueChange(0.0f, "OFF");
                 break;
             case "5":
-                HandleUninjection();
                 HandleExit(ref running);
                 break;
             default:
@@ -85,21 +84,15 @@ class Program
         }
     }
 
-    private static void HandleUninjection()
+    private static void HandleRevertInjection()
     {
-        ////if (!_injector.IsInjected)
-        ////{
-        ////    Console.WriteLine("Memory is not injected yet!");
-        ////    return;
-        ////}
-
-        if (_injector.UnInject())
+        if (_injector.RevertInjection())
         {
-            Console.WriteLine("UnInjection successful!");
+            Console.WriteLine("Injection reverted successfully!");
         }
         else
         {
-            Console.WriteLine("UnInjection failed!");
+            Console.WriteLine("Failed to revert injection!");
         }
     }
 
@@ -127,7 +120,7 @@ class Program
         if (_injector.IsInjected)
         {
             Console.WriteLine("Cleaning up...");
-            _injector.UnInject();
+            _injector.RevertInjection();
         }
     }
 

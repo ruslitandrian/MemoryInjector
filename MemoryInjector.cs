@@ -84,7 +84,7 @@ namespace MemoryInjectorLib
         #endregion
 
         #region Public Methods
-        public bool UnInject()
+        public bool RevertInjection()
         {
             try
             {
@@ -110,7 +110,7 @@ namespace MemoryInjectorLib
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"UnInject failed: {ex.Message}");
+                Console.WriteLine($"Revert injection failed: {ex.Message}");
                 _isInjected = false;
                 return false;
             }
